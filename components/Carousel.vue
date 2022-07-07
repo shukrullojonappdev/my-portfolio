@@ -9,8 +9,8 @@
       <font-awesome-icon icon="fa-solid fa-angle-left" />
     </button>
     <div class="inner">
-      <div v-for="slide in slides" :key="slide" class="cards">
-        <div v-show="currentSlide === slide.count" class="card">
+      <div v-for="(slide, index) in slides" :key="index" class="cards">
+        <div v-show="currentSlide === index + 1" class="card">
           <img
             :src="require(`~/assets/images/${slide.img}.webp`)"
             class="image"
@@ -43,8 +43,8 @@ export default {
   data() {
     return {
       slides: [
-        {count: 1, img: 'img-1', text: 'Use of the latest technologies during development', icon: ['fa-solid fa-microchip', 'fa-solid fa-laptop-code', 'fa-solid fa-gear']},
-        {count: 2, img: 'img-2', text: 'Development of cross-browser and adaptive sites', icon: ['fa-solid fa-mobile-screen-button', 'fa-solid fa-laptop', 'fa-solid fa-tablet-screen-button']},
+        { img: 'img-1', text: 'Use of the latest technologies during development', icon: ['fa-solid fa-microchip', 'fa-solid fa-laptop-code', 'fa-solid fa-gear']},
+        { img: 'img-2', text: 'Development of cross-browser and adaptive sites', icon: ['fa-solid fa-mobile-screen-button', 'fa-solid fa-laptop', 'fa-solid fa-tablet-screen-button']},
       ],
       currentSlide: 1,
       slidesLenth: 2,

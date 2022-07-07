@@ -14,9 +14,11 @@
 
     <nav class="navigation closeNavigation">
       <div class="links">
-        <NuxtLink class="link" to="/">Home</NuxtLink>
-        <NuxtLink class="link" to="projects">Projects</NuxtLink>
-        <NuxtLink class="link" to="contacts">Contacts</NuxtLink>
+        <div v-for="(item, index) in links" :key="[item, index]">
+          <NuxtLink :to="item.to" class="link">
+            {{ item.link }}
+          </NuxtLink>
+        </div>
       </div>
       <font-awesome-icon
         icon="fa-solid fa-xmark"
@@ -33,6 +35,11 @@ export default {
   data() {
     return {
       toggled: false,
+      links: [
+        { to: '/', link: 'Home' },
+        { to: 'projects', link: 'Projects' },
+        { to: 'contacts', link: 'Contacts' },
+      ],
     }
   },
   methods: {
@@ -52,7 +59,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .header {
   padding-top: 20px;
   width: 100%;
@@ -86,6 +93,9 @@ export default {
 .link {
   margin: 0 10px;
   text-decoration: none;
+  &.nuxt-link-exact-active {
+    color: #00adb5;
+  }
 }
 .closeNavigation {
   transform: translateX(-300px);
