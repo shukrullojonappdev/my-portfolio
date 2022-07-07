@@ -18,9 +18,9 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: white;
+  color: #eeeeee;
 }
 body {
-  background: grey;
+  background: #222831;
 }
 </style>

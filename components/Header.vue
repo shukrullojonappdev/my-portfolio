@@ -12,7 +12,7 @@
       </div>
     </header>
 
-    <nav v-show="toggled" class="navigation">
+    <nav class="navigation closeNavigation">
       <div class="links">
         <NuxtLink class="link" to="/">Home</NuxtLink>
         <NuxtLink class="link" to="projects">Projects</NuxtLink>
@@ -37,10 +37,16 @@ export default {
   },
   methods: {
     openNav() {
+      const navigation = document.querySelector('.navigation')
       this.toggled = true
+      navigation.classList.remove('closeNavigation')
+      navigation.classList.add('openNavigation')
     },
     closeNav() {
+      const navigation = document.querySelector('.navigation')
       this.toggled = false
+      navigation.classList.remove('openNavigation')
+      navigation.classList.add('closeNavigation')
     },
   },
 }
@@ -62,20 +68,12 @@ export default {
   height: 20px;
   padding-left: 10px;
 }
-.close {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-}
 .navigation {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: grey;
-  width: 280px;
+  background-color: #393e46;
+  width: 300px;
   height: 100vh;
   display: flex;
   justify-content: space-between;
@@ -88,5 +86,40 @@ export default {
 .link {
   margin: 0 10px;
   text-decoration: none;
+}
+.closeNavigation {
+  transform: translateX(-300px);
+  animation-name: closed;
+  animation-duration: 300ms;
+}
+.openNavigation {
+  animation-name: opened;
+  animation-duration: 300ms;
+}
+
+@keyframes opened {
+  from {
+    transform: translateX(-300px);
+    visibility: visible;
+  }
+  99% {
+    transform: translate(-1px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes closed {
+  from {
+    transform: translateX(0);
+  }
+  99% {
+    transform: translateX(-299px);
+  }
+  to {
+    transform: translateX(-280px);
+    visibility: hidden;
+  }
 }
 </style>

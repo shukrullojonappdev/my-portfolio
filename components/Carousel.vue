@@ -56,7 +56,7 @@ export default {
     },
     prevSlide() {
       this.currentSlide--
-    }
+    },
   }
 }
 </script>
