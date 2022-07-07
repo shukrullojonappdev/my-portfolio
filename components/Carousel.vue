@@ -72,7 +72,7 @@ export default {
 }
 .inner {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   position: absolute;
   display: flex;
   align-items: center;
@@ -82,14 +82,14 @@ export default {
 .cards {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   z-index: -3;
 }
 .card {
   position: relative;
   width: 100%;
-  min-width: 300px;
-  height: 100%;
+  min-width: 280px;
+  height: 100vh;
   z-index: -4;
   display: flex;
   justify-content: center;
