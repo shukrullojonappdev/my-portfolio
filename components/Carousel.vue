@@ -66,12 +66,12 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   z-index: -1;
 }
 .inner {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   position: absolute;
   display: flex;
@@ -81,13 +81,13 @@ export default {
 
 .cards {
   position: absolute;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   z-index: -3;
 }
 .card {
   position: relative;
-  width: 100%;
+  width: 100vw;
   min-width: 280px;
   height: 100vh;
   z-index: -4;
